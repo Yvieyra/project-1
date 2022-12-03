@@ -1,5 +1,7 @@
 
+
 //Call to the Youtube API
+
 let youtubeURL = "https://www.googleapis.com/youtube/v3/channels?part=contentDetails&mine=true?api_key=AIzaSyDn_KcYLj85JrrXViRDy3henvgOhRsREdM"
 youtubeapiKey = "AIzaSyDn_KcYLj85JrrXViRDy3henvgOhRsREdM";
 
@@ -15,6 +17,7 @@ function getApi() {
        )};
 
 getApi();
+
 
 //Call to the Marvel API
 const M_PRIV_KEY = "9f9f694ad34c04e74f623d0113c1a65d9fa75cb1";
@@ -39,3 +42,4 @@ function getMarvelResponse() {
 };
 
 getMarvelResponse();
+
