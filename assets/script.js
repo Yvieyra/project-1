@@ -1,7 +1,9 @@
 const searchBar = document.getElementById("search-bar");
 const searchResults = [];
-//Call to the Youtube API
+const name = document.getElementById('characterName');
+const description = document.getElementById('characterDescription');
 
+//Call to the Youtube API
 let youtubeURL = "https://www.googleapis.com/youtube/v3/channels?part=contentDetails&mine=true?api_key=AIzaSyDn_KcYLj85JrrXViRDy3henvgOhRsREdM"
 youtubeapiKey = "AIzaSyDn_KcYLj85JrrXViRDy3henvgOhRsREdM";
 
@@ -38,8 +40,8 @@ function getMarvelResponse() {
 
     .done(function(data) {
       console.log(data);
-    })
-};
+    }
+)};
 
 getMarvelResponse();
 
@@ -48,8 +50,8 @@ function saveSearch() {
   localStorage.setItem("searches", JSON.stringify(searchResults));
 }
 
-//Searches Whatever is Typed into Search Bar
-searchBar.addEventListener('keypress', function (e){
+//Searches When Enter Key is Pressed
+searchBar.addEventListener('keypress', function(e){
   if (e.key === 'Enter'){
   const newSearch = e.target.value;
   
@@ -58,4 +60,14 @@ searchBar.addEventListener('keypress', function (e){
   saveSearch();
   }
 })
+
+//Searches When Search Btn is Pressed *IN PROGRESS*
+searchBtn.addEventListener('click', function(e){
+  const newSearch = e.target.value;
+  
+  searchResults.push(newSearch);
+
+  saveSearch();
+})
+
 
