@@ -15,7 +15,7 @@ header {
     height: 685px;
 }
 
- #searchSection {
+#searchSection {
 background-color: red;
 text-align: center;
  }
@@ -32,8 +32,8 @@ text-align: center;
  }
 
  #form {
-    width: 50%;
-    align-items: center;
+  width: 50%;
+  align-items: center;
  }
 
  #footer {
