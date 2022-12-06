@@ -1,18 +1,17 @@
 
 
 //Call to the Youtube API
-
-let youtubeURL = "https://www.googleapis.com/youtube/v3/channels?part=contentDetails&mine=true?api_key=AIzaSyDn_KcYLj85JrrXViRDy3henvgOhRsREdM"
-youtubeapiKey = "AIzaSyDn_KcYLj85JrrXViRDy3henvgOhRsREdM";
-
+let youtubeChannelQuery = "https://www.googleapis.com/youtube/v3/channels?id=UCvC4D8onUfXzvjTOM-dBfEA&"
+youtubeapiKey = "key=AIzaSyDn_KcYLj85JrrXViRDy3henvgOhRsREdM";
+marvelId="UCvC4D8onUfXzvjTOM-dBfEA"
 function getApi() {
-    let youtubeURL = "https://www.googleapis.com/youtube/v3/search?key=AIzaSyDn_KcYLj85JrrXViRDy3henvgOhRsREdM&q=marvel";
-    fetch(youtubeURL)
+  let youtubeQuery = "https://www.googleapis.com/youtube/v3/search?" + youtubeapiKey;
+    fetch(youtubeQuery)
         .then(function (response) {
         return response.json();
         })
         .then(function (data) {
-       console.log(data)
+       console.log(data);
         }
        )};
 
@@ -43,3 +42,4 @@ function getMarvelResponse() {
 
 getMarvelResponse();
 
+"https://www.googleapis.com/youtube/v3/channels?id=UCvC4D8onUfXzvjTOM-dBfEA&" + youtubeapiKey;

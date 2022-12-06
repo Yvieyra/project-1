@@ -14,46 +14,50 @@
     <header>
         <h1>Marvel Superhero Highlights</h1>
     </header>
-
     <section id="marvelImage">
-        <img src="./images/The_Marvel_Universe.webp" alt="">
+        <img id="marvelpic" src="./images/The_Marvel_Universe.webp" alt="marvel group photo">
     </section>
-
     <section id="searchSection">
-        <p> "It's an imperfect world ... but it's the only one we got." - Iron Man</p>
+        <p id="quote"> "It's an imperfect world ... but it's the only one we got." - Tony Stark </p>
         <p> SEARCH YOUR FAVORITE MARVEL CHARACTER! </p>
-        <input type="search">
+        <div class="container" 
+            <form id="form">
+            <input type="text" placeholder="SEARCH HERE">
+            <button type="submit">SEARCH</button>
+            </form>
+        </div>
     </section>
-
     <main>
         <section id="character">
-            <h2>CHARACTER NAME: <span id="characterName"></span></h2>
+            <h4>CHARACTER NAME <span id="characterName"></span></h4>
         </section>
-
         <section id="marvelDescription">
-            <h2>CHARACTER DESCRIPTION</h2>
+            <p>Character Description</p>
             <p id="characterDescription"></p>
         </section>
-
         <section id="image">
             <img id="Characterimage" src="">
         </section>
     </main>
-
     <aside>
         <section id="youtubeLinks">
-            <h2>Youtube links</h2>
+            <h4>Youtube Links</h4>
             <ul>
-
+                <li class="collection-item avatar">
+                    <i class="material-icons circle red">play_arrow</i>
+                    <span class="title">Title</span>
+                    <p>First Line <br>
+                       Second Line
+                    </p>
+                    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                  </li>
+                </ul>
             </ul>
         </section>
     </aside>
-
     <footer>
-        <p>Data provided by Marvel. © 2014 Marvel</p>
+        <p id="footer">Data provided by Marvel. © 2014 Marvel</p>
     </footer>
-
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
