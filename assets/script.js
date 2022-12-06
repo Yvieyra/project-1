@@ -1,5 +1,5 @@
-
-
+const searchBar = document.getElementById("search-bar");
+const searchResults = [];
 //Call to the Youtube API
 
 let youtubeURL = "https://www.googleapis.com/youtube/v3/channels?part=contentDetails&mine=true?api_key=AIzaSyDn_KcYLj85JrrXViRDy3henvgOhRsREdM"
@@ -20,8 +20,8 @@ getApi();
 
 
 //Call to the Marvel API
-const M_PRIV_KEY = "9f9f694ad34c04e74f623d0113c1a65d9fa75cb1";
-const M_PUBLIC_KEY = "4565e4658e4d5bd74420b0139cfdd052";
+const M_PRIV_KEY = '9f9f694ad34c04e74f623d0113c1a65d9fa75cb1';
+const M_PUBLIC_KEY = '4565e4658e4d5bd74420b0139cfdd052';
 
 function getMarvelResponse() {
                                                                                   
@@ -30,16 +30,32 @@ function getMarvelResponse() {
 
   let url = 'https://gateway.marvel.com:443/v1/public/characters?';
 
-  console.log(url);
   $.getJSON(url, {
     ts: ts,
     apikey: M_PUBLIC_KEY,
     hash: hash,
     })
+
     .done(function(data) {
       console.log(data);
     })
 };
 
 getMarvelResponse();
+
+//Save Searches into Local Storage
+function saveSearch() {
+  localStorage.setItem("searches", JSON.stringify(searchResults));
+}
+
+//Searches Whatever is Typed into Search Bar
+searchBar.addEventListener('keypress', function (e){
+  if (e.key === 'Enter'){
+  const newSearch = e.target.value;
+  
+  searchResults.push(newSearch);
+
+  saveSearch();
+  }
+})
 
