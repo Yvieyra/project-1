@@ -2,6 +2,7 @@ const searchBar = document.getElementById("search-bar");
 const searchResults = [];
 const name = document.getElementById('characterName');
 const description = document.getElementById('characterDescription');
+const searchBtn = document.getElementById('searchBtn');
 
 //Call to the Youtube API
 let youtubeURL = "https://www.googleapis.com/youtube/v3/channels?part=contentDetails&mine=true?api_key=AIzaSyDn_KcYLj85JrrXViRDy3henvgOhRsREdM"
@@ -53,21 +54,28 @@ function saveSearch() {
 //Searches When Enter Key is Pressed
 searchBar.addEventListener('keypress', function(e){
   if (e.key === 'Enter'){
-  const newSearch = e.target.value;
+  const newSearch = searchBar.value;
   
   searchResults.push(newSearch);
 
   saveSearch();
+  } else {
+    return;
   }
-})
+});
 
-//Searches When Search Btn is Pressed *IN PROGRESS*
-searchBtn.addEventListener('click', function(e){
-  const newSearch = e.target.value;
+//Searches When Search Button is Clicked
+
+searchBtn.addEventListener('click', function(event){
+  event.preventDefault();
+
+  const newSearch = searchBar.value;
   
   searchResults.push(newSearch);
 
   saveSearch();
-})
+});
+
+
 
 
