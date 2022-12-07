@@ -6,7 +6,6 @@
 
 header {
     text-align: center;
-    background-color: red;
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
@@ -16,7 +15,6 @@ header {
 }
 
 #searchSection {
-background-color: red;
 text-align: center;
  }
 
@@ -26,7 +24,7 @@ text-align: center;
     font-style: oblique;
  }
 
- P {
+ P, h4 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 18px;
  }
