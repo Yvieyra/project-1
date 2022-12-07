@@ -4,12 +4,13 @@ const name = document.getElementById('characterName');
 const description = document.getElementById('characterDescription');
 
 //Call to the Youtube API
-let youtubeURL = "https://www.googleapis.com/youtube/v3/channels?part=contentDetails&mine=true?api_key=AIzaSyDn_KcYLj85JrrXViRDy3henvgOhRsREdM"
-youtubeapiKey = "AIzaSyDn_KcYLj85JrrXViRDy3henvgOhRsREdM";
+
+// let youtubeURL = "https://www.googleapis.com/youtube/v3/search?maxResults=7&key=" + youtubeApiKey + "&q=marvel&q=" + marvelCharacter;
+youtubeApiKey = "AIzaSyDn_KcYLj85JrrXViRDy3henvgOhRsREdM";
 
 function getApi() {
-    let youtubeURL = "https://www.googleapis.com/youtube/v3/search?key=AIzaSyDn_KcYLj85JrrXViRDy3henvgOhRsREdM&q=marvel";
-    fetch(youtubeURL)
+  let testyoutubeURL = "https://www.googleapis.com/youtube/v3/search?maxResults=7&key=AIzaSyDn_KcYLj85JrrXViRDy3henvgOhRsREdM&q=marvel&q=spiderman";
+    fetch(testyoutubeURL)
         .then(function (response) {
         return response.json();
         })
