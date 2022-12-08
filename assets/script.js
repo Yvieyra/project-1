@@ -32,18 +32,15 @@ function getMarvelResponse() {
   let ts = new Date().getTime();
   let hash = CryptoJS.MD5(ts + M_PRIV_KEY + M_PUBLIC_KEY).toString();
 
-  let url = 'https://gateway.marvel.com:443/v1/public/characters?name=hulk';
 
-  $.getJSON(url, {
-    ts: ts,
-    apikey: M_PUBLIC_KEY,
-    hash: hash,
-    })
+  fetch(
+    `https://gateway.marvel.com:443/v1/public/characters?&ts=${ts}&apikey=${M_PUBLIC_KEY}&hash=${hash}`
+  )
 
-    .done(function(data) {
-      console.log(data);
-    }
-)};
+    .then((response) => response.json())
+    .then ((data) => console.log(data));
+
+};
 
 getMarvelResponse();
 
@@ -53,18 +50,6 @@ function saveSearch() {
   localStorage.setItem("recent-searches", JSON.stringify(searchResults));
 }
 
-//Searches When Enter Key is Pressed
-searchBar.addEventListener('keypress', function(e){
-  if (e.key === 'Enter'){
-  const newSearch = searchBar.value;
-  
-  searchResults.push(newSearch);
-
-  saveSearch();
-  searchCharacter();
-
-  }
-});
 
 //Searches When Search Button is Clicked
 searchBtn.addEventListener('click', function(event){
@@ -79,26 +64,51 @@ searchBtn.addEventListener('click', function(event){
  
 });
 
-//input search data in marvel url
+//Searches when Enter Key is Pressed
+
+searchBar.addEventListener('keypress', function(e){
+  if (e.key === 'Enter'){
+  const newSearch = searchBar.value;
+  
+  searchResults.push(newSearch);
+
+  saveSearch();
+  searchCharacter();
+
+  }
+});
+
+//Input search data in marvel url and display *IN PROGRESS*
 
 function searchCharacter() {
   let ts = new Date().getTime();
   let hash = CryptoJS.MD5(ts + M_PRIV_KEY + M_PUBLIC_KEY).toString();
 
-  let newUrl = 'https://gateway.marvel.com:443/v1/public/characters?name=' + searchBar.value;
+  fetch(
+    `https://gateway.marvel.com:443/v1/public/characters?name=${searchBar.value}&ts=${ts}&apikey=${M_PUBLIC_KEY}&hash=${hash}`
+  )
 
-  $.getJSON(newUrl, {
-    ts: ts,
-    apikey: M_PUBLIC_KEY,
-    hash: hash,
-    })
-    .done(function(data) {
+    .then((response) => response.json())
+    .then ((data) => {
       console.log(data);
+      displayHeroInfo(data)
+    });
+}
 
-      characterName.textContent = data.results[0].name;
-      characterDescription.textContent = data.results[0].description;
-    }
-)};
+function displayHeroInfo(data) { //ERROR: Uncaught (in promise) TypeError: Cannot read properties of undefined (reading '0')//
+ 
+  const heroName = data.results[0].name
+  const heroDescription = data.results[0].description
+
+  characterName.textContent = heroName;
+  characterDescription.textContent = heroDescription;
+
+}
+
+
+
+
+
 
 
 
