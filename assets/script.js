@@ -1,7 +1,7 @@
 const searchBar = document.getElementById("search-bar");
 const searchResults = [];
-const name = document.getElementById('characterName');
-const description = document.getElementById('characterDescription');
+const characterName = document.getElementById('characterName');
+const characterDescription = document.getElementById('characterDescription');
 const searchBtn = document.getElementById('searchBtn');
 
 //Call to the Youtube API
@@ -31,7 +31,7 @@ function getMarvelResponse() {
   let ts = new Date().getTime();
   let hash = CryptoJS.MD5(ts + M_PRIV_KEY + M_PUBLIC_KEY).toString();
 
-  let url = 'https://gateway.marvel.com:443/v1/public/characters?';
+  let url = 'https://gateway.marvel.com:443/v1/public/characters?name=hulk';
 
   $.getJSON(url, {
     ts: ts,
@@ -46,9 +46,10 @@ function getMarvelResponse() {
 
 getMarvelResponse();
 
+
 //Save Searches into Local Storage
 function saveSearch() {
-  localStorage.setItem("searches", JSON.stringify(searchResults));
+  localStorage.setItem("recent-searches", JSON.stringify(searchResults));
 }
 
 //Searches When Enter Key is Pressed
@@ -59,13 +60,12 @@ searchBar.addEventListener('keypress', function(e){
   searchResults.push(newSearch);
 
   saveSearch();
-  } else {
-    return;
+  searchCharacter();
+
   }
 });
 
 //Searches When Search Button is Clicked
-
 searchBtn.addEventListener('click', function(event){
   event.preventDefault();
 
@@ -74,7 +74,30 @@ searchBtn.addEventListener('click', function(event){
   searchResults.push(newSearch);
 
   saveSearch();
+  searchCharacter();
+ 
 });
+
+//input search data in marvel url
+
+function searchCharacter() {
+  let ts = new Date().getTime();
+  let hash = CryptoJS.MD5(ts + M_PRIV_KEY + M_PUBLIC_KEY).toString();
+
+  let newUrl = 'https://gateway.marvel.com:443/v1/public/characters?name=' + searchBar.value;
+
+  $.getJSON(newUrl, {
+    ts: ts,
+    apikey: M_PUBLIC_KEY,
+    hash: hash,
+    })
+    .done(function(data) {
+      console.log(data);
+
+      characterName.textContent = data.results[0].name;
+      characterDescription.textContent = data.results[0].description;
+    }
+)};
 
 
 
