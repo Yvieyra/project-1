@@ -27,8 +27,7 @@ function getApi() {
        )};
 
 
-// MARVEL API//
-
+// MARVEL API
 //Input search data in marvel URL and display 
 
 const M_PRIV_KEY = '9f9f694ad34c04e74f623d0113c1a65d9fa75cb1';
