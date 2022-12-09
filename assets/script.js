@@ -1,4 +1,5 @@
 
+
 let searchBar = document.getElementById("searchBar");
 const name = document.getElementById('characterName');
 const description = document.getElementById('characterDescription');
@@ -40,23 +41,20 @@ function getMarvelResponse() {
   let ts = new Date().getTime();
   let hash = CryptoJS.MD5(ts + M_PRIV_KEY + M_PUBLIC_KEY).toString();
 
-  let url = 'https://gateway.marvel.com:443/v1/public/characters?';
 
-  $.getJSON(url, {
-    ts: ts,
-    apikey: M_PUBLIC_KEY,
-    hash: hash,
-  })
+  fetch(
+    `https://gateway.marvel.com:443/v1/public/characters?&ts=${ts}&apikey=${M_PUBLIC_KEY}&hash=${hash}`
+  )
 
-    .done(function (data) {
-      console.log(data);
-    }
-    )
+    .then((response) => response.json())
+    .then ((data) => console.log(data));
 };
 
 getMarvelResponse();
 
+
 //Save Searches into Local Storage
+
 function saveSearch(character) {
   localStorage.setItem("searches", JSON.stringify(character));
 }
@@ -79,5 +77,20 @@ searchBtn.addEventListener('click', function (e) {
   saveSearch(newSearch);
   getApi();
 })
+
+function saveSearch() {
+  localStorage.setItem("recent-searches", JSON.stringify(searchResults));
+}
+
+
+
+ 
+
+
+
+
+
+
+
 
 
