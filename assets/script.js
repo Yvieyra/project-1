@@ -79,7 +79,7 @@ searchBtn.addEventListener('click', function(event){
 
 //Searches when Enter Key is Pressed
 
-searchBar.addEventListener('keypress', function(e){
+searchBar.addEventListener('click', function(e){
   if (e.key === 'Enter'){
   const newSearch = searchBar.value;
   
