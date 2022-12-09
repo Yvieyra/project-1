@@ -1,11 +1,13 @@
 
 
+
 let searchBar = document.getElementById("searchBar");
 const name = document.getElementById('characterName');
 const description = document.getElementById('characterDescription');
 const searchBtn = document.getElementById('searchBtn')
 
 const youtubeVideo = document.getElementById('youtubeVideo')
+
 //Call to the Youtube API
 
 const kateApiKey = "AIzaSyAEoS8iWmmJmS6P5yIJ7lF2fijwJRn0QQQ";
@@ -32,25 +34,42 @@ function getApi() {
 };
 
 
-//Call to the Marvel API
+//Input search data in marvel URL and display 
+
 const M_PRIV_KEY = '9f9f694ad34c04e74f623d0113c1a65d9fa75cb1';
 const M_PUBLIC_KEY = '4565e4658e4d5bd74420b0139cfdd052';
 
+
 function getMarvelResponse() {
+
 
   let ts = new Date().getTime();
   let hash = CryptoJS.MD5(ts + M_PRIV_KEY + M_PUBLIC_KEY).toString();
 
-
   fetch(
-    `https://gateway.marvel.com:443/v1/public/characters?&ts=${ts}&apikey=${M_PUBLIC_KEY}&hash=${hash}`
+    `https://gateway.marvel.com:443/v1/public/characters?name=${searchBar.value}&ts=${ts}&apikey=${M_PUBLIC_KEY}&hash=${hash}`
   )
 
     .then((response) => response.json())
-    .then ((data) => console.log(data));
-};
 
-getMarvelResponse();
+    .then ((data) => {
+      console.log(data);
+      displayHeroInfo(data)
+    });
+}
+
+function displayHeroInfo(data) {
+  const heroName = data.data.results[0].name
+  const heroDescription = data.data.results[0].description
+  const heroImage = data.data.results[0].thumbnail.path + '.' + data.data.results[0].thumbnail.extension
+
+
+  characterName.textContent = heroName;
+  characterDescription.textContent = heroDescription;
+  document.getElementById('Characterimage').src = heroImage;
+}
+
+
 
 
 //Save Searches into Local Storage
@@ -78,6 +97,7 @@ searchBtn.addEventListener('click', function (e) {
   getApi();
 })
 
+
 function saveSearch() {
   localStorage.setItem("recent-searches", JSON.stringify(searchResults));
 }
@@ -85,6 +105,7 @@ function saveSearch() {
 
 
  
+
 
 
 
