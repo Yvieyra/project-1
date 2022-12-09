@@ -14,7 +14,7 @@ After loading the page, simply type in the name of the character you want to sea
 
 **Some characters do not have a profile or are missing information in the Marvel Database. As a result, some information may not display when searching for a character. For example, the Marvel character Black Widow does not have a description in the Marvel API and as such, will not display a description on the webpage if searched for.
 
-**Videos pulled from the Youtube API only contain the name of the character as a keyword. The videos shown may or may not be from official sources.
+**Videos pulled from the Youtube API only contain the name of the character as a keyword. The videos shown may or may not be from official sources and/or contain relevent information regarding the searched character.
 
 ## Credits
 
