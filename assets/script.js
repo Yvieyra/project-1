@@ -15,13 +15,13 @@ const andyApiKey = "AIzaSyDn_KcYLj85JrrXViRDy3henvgOhRsREdM";
 
 //Input data into Youtube API and display
 function getApi() {
-  let youtubeURL = `https://www.googleapis.com/youtube/v3/search?maxResults=1&key=${yesseniaApiKey}&q=marvel&q=${searchBar.value}`;
+  let youtubeURL = `https://www.googleapis.com/youtube/v3/search?maxResults=2&key=${yesseniaApiKey}&q=MarvelScene${searchBar.value}`;
     fetch(youtubeURL)
         .then(function (response) {
         return response.json();
         })
         .then(function (data) {
-        let videoId = data.items[0].id.videoId
+        let videoId = data.items[1].id.videoId
         youtubeVideo.src = `https://www.youtube.com/embed/${videoId}?rel=0`
         }
        )};
@@ -91,3 +91,4 @@ searchBar.addEventListener('click', function(e){
 
   }
 });
+
