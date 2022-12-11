@@ -14,19 +14,19 @@
     <header class="red darken-3 z-depth-5">
         <h1>Marvel Superhero Highlights</h1>
     </header>
-    <section id="marvelImage">
+    <section>
         <img class="responsive-img" id="marvelpic" src="./images/The_Marvel_Universe.webp" alt="marvel group photo">
     </section>
 
     <section class="card-panel red darken-3 z-depth-5" id="searchSection">
         <p id="quote"> "It's an imperfect world ... but it's the only one we got." - Tony Stark </p>
-        <p> SEARCH YOUR FAVORITE MARVEL CHARACTER! </p>
+        <p id="searchText"> SEARCH YOUR FAVORITE MARVEL CHARACTER! </p>
+
         <form id="form center-align">
-
             <input type="text" id="search-bar" placeholder="SEARCH HERE"></input>
-            <button id ="searchBtn" type="submit">SEARCH</button>
-
+            <button id="searchBtn" type="submit">SEARCH</button>
         </form>
+
     </section>
 
     <div class="row">
@@ -34,31 +34,31 @@
             <section id="character">
                 <h4>CHARACTER NAME: <span id="characterName"></span></h4>
             </section>
-            <section id="marvelDescription">
-                <p>Character Description</p>
-                <p id="characterDescription"></p>
-            </section>
+
             <section id="image">
-                <img src="images/placeholder.jpg" id="Characterimage" src="">
+                <img src="images/placeholder.jpg" class="responsive-img" id="Characterimage" src="">
+            </section>
+
+            <section id="marvelDescription">
+                <p id="characterDescription"></p>
             </section>
         </div>
         <div class="col s7 center-align">
             <section id="youtubeLinks">
-                <h4>Youtube Links</h4>
+                <h4>Video Reference</h4>
 
-                <div class="video-container">
-
-                    <iframe id="youtubeVideo" width="853" height="480" src="" frameborder="0"
-                        allowfullscreen></iframe>
-
+                <div class="video-container responsive">
+                    <iframe id="youtubeVideo" width="853" height="480" src="./images/video-placeholder.jpg"
+                        frameborder="0" allowfullscreen></iframe>
                 </div>
 
             </section>
         </div>
 
         <footer class="col s12 center-align">
-            <p id="footer">Data provided by Marvel. © 2014 Marvel</p>
+            <p class="red darken-3 z-depth-5" id="footer">Data provided by Marvel. © 2014 Marvel</p>
         </footer>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script type="text/javascript"

@@ -15,16 +15,17 @@ const andyApiKey = "AIzaSyDn_KcYLj85JrrXViRDy3henvgOhRsREdM";
 
 //Input data into Youtube API and display
 function getApi() {
-  let youtubeURL = `https://www.googleapis.com/youtube/v3/search?maxResults=2&key=${yesseniaApiKey}&q=MarvelScene${searchBar.value}`;
-    fetch(youtubeURL)
-        .then(function (response) {
-        return response.json();
-        })
-        .then(function (data) {
-        let videoId = data.items[1].id.videoId
-        youtubeVideo.src = `https://www.youtube.com/embed/${videoId}?rel=0`
-        }
-       )};
+  let youtubeURL = `https://www.googleapis.com/youtube/v3/search?maxResults=1&key=${yesseniaApiKey}&q=FightScene${searchBar.value}`;
+  fetch(youtubeURL)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      let videoId = data.items[0].id.videoId
+      youtubeVideo.src = `https://www.youtube.com/embed/${videoId}?rel=0`
+    }
+    )
+};
 
 
 // MARVEL API
@@ -41,7 +42,7 @@ function searchCharacter() {
   )
 
     .then((response) => response.json())
-    .then ((data) => {displayHeroInfo(data)});
+    .then((data) => { displayHeroInfo(data) });
 }
 
 function displayHeroInfo(data) {
@@ -64,30 +65,30 @@ function saveSearch() {
 
 
 //Searches When Search Button is Clicked
-searchBtn.addEventListener('click', function(event){
+searchBtn.addEventListener('click', function (event) {
   event.preventDefault();
 
   const newSearch = searchBar.value;
-  
+
   searchResults.push(newSearch);
 
   saveSearch();
   searchCharacter();
   getApi()
- 
+
 });
 
 //Searches when Enter Key is Pressed
 
-searchBar.addEventListener('click', function(e){
-  if (e.key === 'Enter'){
-  const newSearch = searchBar.value;
-  
-  searchResults.push(newSearch);
+searchBar.addEventListener('click', function (e) {
+  if (e.key === 'Enter') {
+    const newSearch = searchBar.value;
 
-  saveSearch();
-  searchCharacter();
-  getApi()
+    searchResults.push(newSearch);
+
+    saveSearch();
+    searchCharacter();
+    getApi()
 
   }
 });
