@@ -1,39 +1,73 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;    
-   }
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+
+}
+
+body {
+   background-color: black;
+}
 
 header {
-    text-align: center;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+   text-align: center;
+   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+   margin-left: 8px;
+   margin-right: 8px;
 }
 
 #marvelpic {
-    width: 100%;
-    height: 685px;
+   width: 100%;
+   height: 685px;
+   margin-right: 8px;
+   margin-left: 8px;
+
 }
 
 #searchSection {
-text-align: center;
- }
+   text-align: center;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-end;
+   margin-left: 8px;
+   margin-right: 8px;
+}
 
- #quote {
-    font-size: 25px;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-style: oblique;
- }
+#quote {
+   font-size: 25px;
+   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+   font-style: oblique;
+   color: black;
+}
 
- P, h4 {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 18px;
- }
+#searchText {
+   color: white;
+   margin: 3px;
+}
 
- #form {
-  width: 50%;
-  align-content: center;
- }
+P,
+h4 {
+   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+   font-size: 18px;
+   color: white;
+}
 
- #footer {
-    font-size: 15px;
- }
+#form {
+   width: 50%;
+   align-content: center;
+}
+
+#Characterimage {
+   width: 90%;
+   height: 490px;
+}
+
+#characterDescription {
+   margin-top: 5px;
+}
+
+#footer {
+   font-size: 15px;
+   margin-top: 15px;
+   color: black;
+}
