@@ -10,19 +10,25 @@ N/A
 
 ## Usage
 
+https://yvieyra.github.io/project-1/
+
 After loading the page, simply type in the name of the character you want to search into the search bar, and either press the enter key or the search button. Any information gathered from the Marvel API will display on the left side of the page, while a youtube video containing the character's name will be collected from the Youtube API and displayed on the right. 
 
 **Some characters do not have a profile or are missing information in the Marvel Database. As a result, some information may not display when searching for a character. For example, the Marvel character Black Widow does not have a description in the Marvel API and as such, will not display a description on the webpage if searched for.
 
-**Videos pulled from the Youtube API only contain the name of the character as a keyword. The videos shown may or may not be from official sources and/or contain relevent information regarding the searched character. Some videos may show a message labeled "Video unavailable" redirecting the user to watch the video through the link provided. The link provided will, work.
+**Videos pulled from the Youtube API only contain the name of the character as a keyword. The videos shown may or may not be from official sources and/or contain relevent information regarding the searched character. Some videos may show a message labeled "Video unavailable" redirecting the user to watch the video through the link provided. The link provided will work.
+
+![top-of-page](./images/top-page.png)
+![search-bar](./images/search-bar.png)
+![display](./images/display.png)
 
 ## Credits
 
 Collaborators:
 
 Yessenia Vieyra - https://github.com/Yvieyra
-Andy Schultz - https://github.com/schultzzdawgg
 Kate Steed - https://github.com/Ksteed8859
+Andy Schultz - https://github.com/schultzzdawgg
 Alec Smith - https://github.com/ARASAKA0
 
 API:
